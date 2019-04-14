@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>css3 flex demo</title>
+      <style>
+        /***
+        ========
+        父类容器属性:
+        flex-direction: row | row-reverse | column | column-reverse;
+        flex-wrap: nowrap | wrap | wrap-reverse;
+        flex-flow: <flex-direction> <flex-wrap>
+        align-items:stretch | center | flex-start | flex-end | baseline;
+        justify-content：flex-start | flex-end | center | space-between | space-around;
+        =========
+        子类元素属性:
+        order:<integer>;               用整数值来定义排列顺序，数值小的排在前面。可以为负值，默认为0。
+        flex-grow:<integer>;           一个数字，规定项目将相对于其他灵活的项目进行扩展的量。默认值是 0。
+        flex-shrink: <integer>;        一个数字，规定项目将相对于其他灵活的项目进行收缩的量。默认值是 1。
+        flex-basis: <integer> | auto;  个长度单位或者一个百分比，规定元素的初始长度。
+        flex: flex-grow flex-shrink flex-basis | auto | initial | inherit;
+        align-self: auto | stretch | center | flex-start | flex-end | baseline | initial | inherit;
+        =========
+        ***/
+        .flex-container{
+          height: 300px;
+          border: 1px solid black;
+          display: -webkit-flex;
+          display: flex; 
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
+        }
+        [class^=item]{
+          height: 100px;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+        .item1{
+          background-color: red;
+          flex-basis: 50%;
+        }
+        .item2{
+          background-color: orange;
+          flex-basis: 40%;
+        }
+        .item3{
+          background-color: green;
+
+        }
+        .align_items,.align_content{ width: 302px; height: 302px;border:1px solid; display: flex; float: left; margin-left: 50px;}
+        .align_items{ align-items: baseline; }
+        .align_content{ flex-wrap: wrap; align-content: space-around; justify-content: space-around;}
+        .item1-1{ background:red;}
+        .item1-2{ background:orange;}
+        .item1-3{ background:yellow;}
+        .item1-4{ background:green;}
+        .item1-5{ background:cyan;}
+        .item1-6{ background:blue;}
+        .item3-1,.item3-2,.item3-3{ width: 100px; height: 80px;}
+        .item3-3{ font-size: 50px; }
+        .item3-1{ font-size: 24px;}
+        .item4-1{ width: 200px; height: 80px;}
+        .item4-2{ width: 30px; height: 50px;}
+        .item4-3{ width: 280px; height: 100px;}
+        .item4-4{ width: 80px; height: 30px;}
+        .item4-5{ width: 40px; height: 100px;}
+        .item4-5{ width: 120px; height: 60px;}
+      </style>
+  </head>
+  <body>
+    <h1>flex 单行自适应布局</h1>
+    <div class="flex-container">
+      <div class="item1">1</div>
+      <div class="item2">2</div>
+      <div class="item3">3</div>
+    </div>
+  </body>
+</html>
