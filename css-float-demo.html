@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>css3 flex demo</title>
+      <style>
+        /***
+        ========
+       
+        =========
+        ***/
+        .float-container{
+          height: 200px;
+          border: 1px solid black;
+          position: relative;
+          overflow: hidden;
+        }
+        [class^=item]{
+          height: 200px;
+          text-align: center;
+          vertical-align: middle;
+          line-height: 200px;
+          color: #fff;
+          font-size: 40px;
+          float: left;
+        }
+        
+        .item1{
+          background-color: red;
+          width: 100px;
+          position: absolute;
+          left: 0;
+        }
+        .item2{
+          background-color: orange;
+          width: 100%;
+          margin-right: 100px;
+          padding-left: 0px;
+        }
+        .item3{
+          background-color: green;
+          width: 100px;
+          position: absolute;
+          right: 0;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>float 单行自适应布局</h1>
+    <div class="float-container">
+      <div class="item1">1</div>
+      <div class="item2">2 可拉伸</div>
+      <div class="item3">3</div>
+    </div>
+  </body>
+</html>
