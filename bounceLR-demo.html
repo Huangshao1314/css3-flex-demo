@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>bounce left to right demo</title>
+<style>
+  .box{
+    height:200px;
+    width: 200px;
+    background-color:#fff;
+    border: 1px solid gray;
+  }
+  .fold-enter-active, .fold-leave-active {
+    transition: all 1s ease;
+  }
+  .fold-enter, .fold-leave-to{ /* .fade-leave-active*/
+    height: 0;
+  }
+
+@keyframes bounceInRight {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  from {
+    opacity: 0;
+    transform: translate3d(3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInRight {
+  animation-name: bounceInRight;
+}
+</style>
+</head>
+<body>
+  <div id="app">
+    <transition-group name="fold">
+      <div class="box" :key="3" style="height:30px;">  
+        <button @click="boxshow = !boxshow" v-show="!boxshow">点击展开/关闭</button>
+      </div>
+      <div class="box" v-show="boxshow" :key="1">
+          <button @click="boxshow = !boxshow" v-show="boxshow">点击展开/关闭</button>
+      </div>
+    </transition-group>
+    
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  new Vue({
+    el:'#app',
+    data:{
+        boxshow:false
+    },
+  });
+</script>
+</html>
